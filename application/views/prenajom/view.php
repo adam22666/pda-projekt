@@ -9,23 +9,23 @@
 					<p><?php echo !empty($studenti['id'])?$studenti['id']:''; ?></p>
 				</div>
 				<div class="form-group">
-					<label>Meno:</label>
+					<label>Sportovisko:</label>
 					<p><?php echo !empty($studenti['sportovisko'])?$studenti['sportovisko']:''; ?></p>
 				</div>
 				<div class="form-group">
-					<label>Priezvisko:</label>
+					<label>Dátum prenájmu:</label>
 					<p><?php echo !empty($studenti['prenajom_datum'])?$studenti['prenajom_datum']:''; ?></p>
 				</div>
 				<div class="form-group">
-					<label>Priezvisko:</label>
+					<label>Cena:</label>
 					<p><?php echo !empty($studenti['cena'])?$studenti['cena']:''; ?></p>
 			</div>
 				<div class="form-group">
-					<label>Priezvisko:</label>
+					<label>Najomca:</label>
 					<p><?php echo !empty($studenti['najomca_idnajomca'])?$studenti['najomca_idnajomca']:''; ?></p>
 				</div>
 				<div class="form-group">
-						<label>Priezvisko:</label>
+						<label>Kontakt:</label>
 						<p><?php echo !empty($studenti['Kontakt_idKontakt'])?$studenti['Kontakt_idKontakt']:''; ?></p>
 					</div>
 		</div>
