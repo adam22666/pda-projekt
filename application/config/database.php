@@ -75,8 +75,8 @@ $query_builder = TRUE;
 
 $db['default'] = array(
 	'dsn'	=> '',
-	'hostname' => 'localhost',
-	'username' => '',
+	'hostname' => 'localhost:3326',
+	'username' => 'root',
 	'password' => '',
 	'database' => 'sportoviska',
 	'dbdriver' => 'mysqli',
