@@ -6,28 +6,32 @@
 			<div class="panel-body">
 				<div class="form-group">
 					<label>ID:</label>
-					<p><?php echo !empty($studenti['id'])?$studenti['id']:''; ?></p>
+					<p><?php echo !empty($prenajom['id'])?$prenajom['id']:''; ?></p>
 				</div>
 				<div class="form-group">
 					<label>Sportovisko:</label>
-					<p><?php echo !empty($studenti['sportovisko'])?$studenti['sportovisko']:''; ?></p>
+					<p><?php echo !empty($prenajom['sportovisko'])?$prenajom['sportovisko']:''; ?></p>
 				</div>
 				<div class="form-group">
 					<label>Dátum prenájmu:</label>
-					<p><?php echo !empty($studenti['prenajom_datum'])?$studenti['prenajom_datum']:''; ?></p>
+					<p><?php echo !empty($prenajom['prenajom_datum'])?$prenajom['prenajom_datum']:''; ?></p>
 				</div>
 				<div class="form-group">
-					<label>Cena:</label>
-					<p><?php echo !empty($studenti['cena'])?$studenti['cena']:''; ?></p>
+					<label>Cena€:</label>
+					<p><?php echo !empty($prenajom['cena€'])?$prenajom['cena€']:''; ?></p>
 			</div>
 				<div class="form-group">
 					<label>Najomca:</label>
-					<p><?php echo !empty($studenti['najomca_idnajomca'])?$studenti['najomca_idnajomca']:''; ?></p>
+					<p><?php echo !empty($prenajom['najomca_idnajomca'])?$prenajom['najomca_idnajomca']:''; ?></p>
 				</div>
 				<div class="form-group">
 						<label>Kontakt:</label>
-						<p><?php echo !empty($studenti['Kontakt_idKontakt'])?$studenti['Kontakt_idKontakt']:''; ?></p>
+						<p><?php echo !empty($prenajom['Kontakt_idKontakt'])?$prenajom['Kontakt_idKontakt']:''; ?></p>
 					</div>
+				<div class="form-group">
+					<label>Description:</label>
+					<p><?php echo !empty($prenajom['description'])?$prenajom['description']:''; ?></p>
+				</div>
 		</div>
 		</div>
 	</div>

@@ -23,7 +23,8 @@ class Prenajom extends CI_Controller
 		}
 
 		$data['prenajom'] = $this->Prenajom_model->ZobrazPrenajom();
-		$data['nazov'] = 'Zoznam prenájmu';
+		$data['prenajom2'] = $this->Prenajom_model->ZobrazPrenajomSpravne();
+		$data['nazov'] = 'Zoznam prenájmov';
 		//nahratie zoznamu prenajmu
 		$this->load->view('templates/header', $data);
 		$this->load->view('prenajom/index', $data);
@@ -37,7 +38,7 @@ class Prenajom extends CI_Controller
 		//kontrola, ci bolo zaslane id riadka
 		if(!empty($id)){
 			$data['prenajom'] = $this->Prenajom_model->ZobrazPrenajom($id);
-			$data['title'] = $data['prenajom']['sportovisko'] . ' ' . $data['prenajom']['prenajom_datum'] . ' ' . $data['prenajom']['cena']. ' ' . $data['prenajom']['description'] . ' ' . $data['prenajom']['najomca_idnajomca'] . ' ' . $data['prenajom']['Kontakt_idKontakt'];
+			$data['title'] = $data['prenajom']['sportovisko'] . ' ' . $data['prenajom']['prenajom_datum'] . ' ' . $data['prenajom']['cena€']. ' ' . $data['prenajom']['description'] . ' ' . $data['prenajom']['najomca_idnajomca'] . ' ' . $data['prenajom']['Kontakt_idKontakt'];
 
 			//nahratie detailu zaznamu
 			$this->load->view('templates/header', $data);
@@ -58,7 +59,7 @@ class Prenajom extends CI_Controller
 			//definicia pravidiel validacie
 			$this->form_validation->set_rules('sportovisko', 'Pole sportovisko', 'required');
 			$this->form_validation->set_rules('prenajom_datum', 'Pole prenajom_datum', 'required');
-			$this->form_validation->set_rules('cena', 'Pole cena', 'required');
+			$this->form_validation->set_rules('cena€', 'Pole cena€', 'required');
 			$this->form_validation->set_rules('najomca_idnajomca', 'Pole najomca', 'required');
 			$this->form_validation->set_rules('Kontakt_idKontakt', 'Pole kontakt', 'required');
 
@@ -67,7 +68,7 @@ class Prenajom extends CI_Controller
 			$postData = array(
 				'sportovisko' => $this->input->post('sportovisko'),
 				'prenajom_datum' => $this->input->post('prenajom_datum'),
-				'cena' => $this->input->post('cena'),
+				'cena€' => $this->input->post('cena€'),
 				'description' => $this->input->post('description'),
 				'najomca_idnajomca' => $this->input->post('najomca_idnajomca'),
 				'Kontakt_idKontakt' => $this->input->post('Kontakt_idKontakt'),
@@ -87,6 +88,8 @@ class Prenajom extends CI_Controller
 			}
 		}
 		$data['post'] = $postData;
+		$data['najomca'] = $this->Prenajom_model->NaplnDropdownNajomca();
+		$data['vybrany_najomca'] = '';
 		$data['title'] = 'Pridať prenájom';
 		$data['action'] = 'add';
 
@@ -107,7 +110,7 @@ class Prenajom extends CI_Controller
 			//definicia pravidiel validacie
 			$this->form_validation->set_rules('sportovisko', 'Pole sportovisko', 'required');
 			$this->form_validation->set_rules('prenajom_datum', 'Pole prenajom_datum', 'required');
-			$this->form_validation->set_rules('cena', 'Pole cena', 'required');
+			$this->form_validation->set_rules('cena€', 'Pole cena€', 'required');
 			$this->form_validation->set_rules('najomca_idnajomca', 'Pole najomca', 'required');
 			$this->form_validation->set_rules('Kontakt_idKontakt', 'Pole kontakt', 'required');
 
@@ -116,7 +119,7 @@ class Prenajom extends CI_Controller
 			$postData = array(
 				'sportovisko' => $this->input->post('sportovisko'),
 				'prenajom_datum' => $this->input->post('prenajom_datum'),
-				'cena' => $this->input->post('cena'),
+				'cena€' => $this->input->post('cena€'),
 				'description' => $this->input->post('description'),
 				'najomca_idnajomca' => $this->input->post('najomca_idnajomca'),
 				'Kontakt_idKontakt' => $this->input->post('Kontakt_idKontakt'),
@@ -136,8 +139,9 @@ class Prenajom extends CI_Controller
 			}
 		}
 
-		//$data['users'] = $this->Temperatures_model->get_users_dropdown();
-		//	$data['users_selected'] = $postData['user'];
+
+		$data['najomca'] = $this->Prenajom_model->NaplnDropdownNajomca();
+		$data['vybrany_najomca'] = $postData['id'];
 		$data['post'] = $postData;
 		$data['title'] = 'Aktualizovať údaje';
 		$data['action'] = 'edit';
