@@ -18,13 +18,11 @@
 				<table class="table striped">
 					<thead>
 					<tr>
-						<th width="5%">ID</th>
-						<th width="20%">Meno</th>
-						<th width="20%">Priezvisko</th>
-						<th width="15%">Mesto</th>
-						<th width="15%">PSČ</th>
+						<th width="10%">ID</th>
+						<th width="30%">Meno</th>
+						<th width="30%">Priezvisko</th>
 						<th width="15%">Dátum_narodenia</th>
-						<th width="10%">Akcia</th>
+						<th width="15%">Akcia</th>
 
 
 					</tr>
@@ -35,8 +33,6 @@
 							<td><?php echo '#'.$najomca1['idnajomca']; ?></td>
 							<td><?php echo $najomca1['meno']; ?></td>
 							<td><?php echo $najomca1['priezvisko']; ?></td>
-							<td><?php echo $najomca1['mesto']; ?></td>
-							<td><?php echo $najomca1['PSČ']; ?></td>
 							<td><?php echo $najomca1['datum_narodenia']; ?></td>
 							<td>
 								<a href="<?php echo site_url('najomca/view/'.$najomca1['idnajomca']); ?>"class="glyphicon glyphicon-eye-open">View</a>

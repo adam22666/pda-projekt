@@ -19,12 +19,12 @@
 					<thead>
 					<tr>
 						<th width="5%">ID</th>
-						<th width="20%">Sportovisko</th>
-						<th width="20%">Dátum prenájmu</th>
+						<th width="15%">Sportovisko</th>
+						<th width="15%">Dátum prenájmu</th>
 						<th width="15%">Cena€</th>
-						<th width="15%">Najomca</th>
+						<th width="20%">Najomca</th>
 						<th width="15%">Kontakt</th>
-						<th width="10%">Akcia</th>
+						<th width="15%">Akcia</th>
 
 					</tr>
 					</thead>

@@ -18,14 +18,14 @@ class Prenajom_model extends CI_Model {
 	}
 	function ZobrazPrenajomSpravne($id=""){
 		if(!empty($id)){
-			$this->db->select('prenajom.id, CONCAT(meno," ", priezvisko) AS cele_meno, najomca_idnajomca, mesto')
+			$this->db->select('prenajom.id, CONCAT(meno," ", priezvisko) AS cele_meno, najomca_idnajomca')
 				->from('najomca')
 				->join('prenajom', 'najomca.idnajomca = prenajom.najomca_idnajomca')
 				->where('prenajom.id',$id);
 			$query = $this->db->get();
 			return $query->row_array();
 		}else{
-			$this->db->select('prenajom.id, CONCAT(meno," ", priezvisko) AS cele_meno, najomca_idnajomca, mesto')
+			$this->db->select('prenajom.id, CONCAT(meno," ", priezvisko) AS cele_meno, najomca_idnajomca')
 				->from('najomca')
 				->join('prenajom', 'najomca.idnajomca = prenajom.najomca_idnajomca');
 			$query = $this->db->get();

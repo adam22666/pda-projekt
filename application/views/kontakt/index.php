@@ -18,11 +18,12 @@
 				<table class="table striped">
 					<thead>
 					<tr>
-						<th width="10%">ID</th>
-						<th width="30%">Mesto</th>
-						<th width="30%">PSČ</th>
-						<th width="20%">Email</th>
-						<th width="10%">Mobil</th>
+						<th width="5%">ID</th>
+						<th width="15%">Mesto</th>
+						<th width="15%">PSČ</th>
+						<th width="25%">Email</th>
+						<th width="25%">Mobil</th>
+						<th width="20%">Akcia</th>
 
 
 					</tr>

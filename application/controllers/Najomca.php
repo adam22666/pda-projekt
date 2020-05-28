@@ -37,7 +37,7 @@ class Najomca extends CI_Controller
 		//kontrola, ci bolo zaslane id riadka
 		if(!empty($id)){
 			$data['najomca'] = $this->Najomca_model->ZobrazNajomcu($id);
-			$data['title'] = $data['najomca']['meno'] . ' ' . $data['najomca']['priezvisko'] . ' ' . $data['najomca']['mesto']. ' ' . $data['najomca']['PSČ'] . ' ' . $data['najomca']['datum_narodenia'];
+			$data['title'] = $data['najomca']['meno'] . ' ' . $data['najomca']['priezvisko']  . ' ' . $data['najomca']['datum_narodenia'];
 
 			//nahratie detailu zaznamu
 			$this->load->view('templates/header', $data);
