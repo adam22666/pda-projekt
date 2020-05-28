@@ -24,6 +24,7 @@ class Prenajom extends CI_Controller
 
 		$data['prenajom'] = $this->Prenajom_model->ZobrazPrenajom();
 		$data['prenajom2'] = $this->Prenajom_model->ZobrazPrenajomSpravne();
+		$data['prenajom3'] = $this->Prenajom_model->ZobrazPrenajomSpravne2();
 		$data['nazov'] = 'Zoznam prenájmov';
 		//nahratie zoznamu prenajmu
 		$this->load->view('templates/header', $data);
@@ -89,7 +90,9 @@ class Prenajom extends CI_Controller
 		}
 		$data['post'] = $postData;
 		$data['najomca'] = $this->Prenajom_model->NaplnDropdownNajomca();
+		$data['kontakt'] = $this->Prenajom_model->NaplnDropdownKontakt();
 		$data['vybrany_najomca'] = '';
+		$data['vybrany_kontakt'] = '';
 		$data['title'] = 'Pridať prenájom';
 		$data['action'] = 'add';
 
@@ -141,7 +144,9 @@ class Prenajom extends CI_Controller
 
 
 		$data['najomca'] = $this->Prenajom_model->NaplnDropdownNajomca();
+		$data['kontakt'] = $this->Prenajom_model->NaplnDropdownKontakt();
 		$data['vybrany_najomca'] = $postData['id'];
+		$data['vybrany_kontakt'] = $postData['id'];
 		$data['post'] = $postData;
 		$data['title'] = 'Aktualizovať údaje';
 		$data['action'] = 'edit';

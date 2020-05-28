@@ -33,6 +33,23 @@ class Prenajom_model extends CI_Model {
 		}
 
 	}
+	function ZobrazPrenajomSpravne2($id=""){
+		if(!empty($id)){
+			$this->db->select('prenajom.id, CONCAT(mesto," ", PSČ) AS mesto_PSČ, Kontakt_idKontakt, email')
+				->from('kontakt')
+				->join('prenajom', 'kontakt.idKontakt = prenajom.Kontakt_idKontakt')
+				->where('prenajom.id',$id);
+			$query = $this->db->get();
+			return $query->row_array();
+		}else{
+			$this->db->select('prenajom.id, CONCAT(mesto," ", PSČ) AS mesto_PSČ, Kontakt_idKontakt, email')
+				->from('kontakt')
+				->join('prenajom', 'kontakt.idKontakt = prenajom.Kontakt_idKontakt');
+			$query = $this->db->get();
+			return $query->result_array();
+		}
+
+	}
 
 //  naplnenie selectu z tabulky najomca
 	public function NaplnDropdownNajomca($id = ""){
@@ -50,6 +67,23 @@ class Prenajom_model extends CI_Model {
 			return $dropdownlist;
 		}
 	}
+	//  naplnenie selectu z tabulky kontakt
+	public function NaplnDropdownKontakt($id = ""){
+		$this->db->order_by('mesto')
+			->select('idKontakt, CONCAT(mesto," ", PSČ) AS mesto_PSČ')
+			->from('kontakt');
+		$query = $this->db->get();
+		if ($query->num_rows() > 0) {
+			$dropdowns = $query->result();
+			foreach ($dropdowns as $dropdown)
+			{
+				$dropdownlist[$dropdown->idKontakt] = $dropdown->mesto_PSČ;
+			}
+			$dropdownlist[''] = 'Vyberte kontakt';
+			return $dropdownlist;
+		}
+	}
+
 	// vlozenie zaznamu
 	public function insert($data = array()) {
 		$insert = $this->db->insert('prenajom', $data);
