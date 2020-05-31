@@ -20,14 +20,16 @@
 					<label>Cena€:</label>
 					<p><?php echo !empty($prenajom['cena€'])?$prenajom['cena€']:''; ?></p>
 			</div>
+
 				<div class="form-group">
 					<label>Najomca:</label>
 					<p><?php echo !empty($prenajom['najomca_idnajomca'])?$prenajom['najomca_idnajomca']:''; ?></p>
 				</div>
+
 				<div class="form-group">
-						<label>Kontakt:</label>
-						<p><?php echo !empty($prenajom['Kontakt_idKontakt'])?$prenajom['Kontakt_idKontakt']:''; ?></p>
-					</div>
+					<label>Kontakt:</label>
+					<p><?php echo !empty($prenajom['Kontakt_idKontakt'])?$prenajom['Kontakt_idKontakt']:''; ?></p>
+				</div>
 				<div class="form-group">
 					<label>Description:</label>
 					<p><?php echo !empty($prenajom['description'])?$prenajom['description']:''; ?></p>

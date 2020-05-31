@@ -2,6 +2,37 @@
 
 class Prenajom extends CI_Controller
 {
+	public function read()
+	{
+		$this->load->library('pagination');
+
+		$query = $this->db->get('prenajom', '5',$this->uri->segment(3));
+		$data['prenajom'] = $query->result();
+
+		$query2 = $this->db->get('prenajom');
+
+		$config['base_url'] = 'http://localhost/pda-projekt/index.php/prenajom/read';
+		$config['total_rows'] = $query2->num_rows();
+		$config['per_page'] = 5;
+		$config['full_tag_open'] = '<ul class="pagination">';
+		$config['full_tag_close'] = '</ul>';
+		$config['first_tag_open'] = '<li>';
+		$config['last_tag_open'] = '<li>';
+		$config['next_tag_open'] = '<li>';
+		$config['prev_tag_open'] = '<li>';
+		$config['num_tag_open'] = '<li>';
+		$config['num_tag_close'] = '</li>';
+		$config['first_tag_close'] = '</li>';
+		$config['last_tag_close'] = '</li>';
+		$config['next_tag_close'] = '</li>';
+		$config['prev_tag_close'] = '</li>';
+		$config['cur_tag_open'] = "<li class=\"active\"><span><b>";
+		$config['cur_tag_close'] = "</b></span></li>";
+
+		$this->pagination->initialize($config);
+
+		$this->load->view('prenajom/pagination',$data);
+	}
 	public function __construct()
 	{
 		parent::__construct();
@@ -21,7 +52,6 @@ class Prenajom extends CI_Controller
 			$data['error_msg'] = $this->session->userdata('error_msg');
 			$this->session->unset_userdata('error_msg');
 		}
-
 		$data['prenajom'] = $this->Prenajom_model->ZobrazPrenajom();
 		$data['prenajom2'] = $this->Prenajom_model->ZobrazPrenajomSpravne();
 		$data['prenajom3'] = $this->Prenajom_model->ZobrazPrenajomSpravne2();
